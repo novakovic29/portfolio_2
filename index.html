@@ -1,27 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Philipp Novak</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./assets/img/logo_philipp_novak.png" />
 </head>
+
 <body id="top">
 
     <!-- HEADER -->
-  <header class="site-header">
-    <a href="#top" class="logo">[P<span>N</span>]</a>
-    <div class="header-right">
-      <div class="lang" aria-label="Language switch">
-        <button data-lang="en" class="is-active">EN</button>
-        <span class="sep">/</span>
-        <button data-lang="de">DE</button>
-      </div>
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-    
+    <header class="site-header">
+        <a href="#top" class="logo">[P<span>N</span>]</a>
+        <div class="header-right">
+            <div class="lang" aria-label="Language switch">
+                <button data-lang="en" class="is-active">EN</button>
+                <span class="sep">/</span>
+                <button data-lang="de">DE</button>
+            </div>
+            <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MENU OVERLAY -->
+    <nav class="menu" id="menu" aria-hidden="true">
+        <a href="#about"><span class="idx">01</span><span data-i18n="nav_about">About me</span></a>
+        <a href="#skills"><span class="idx">02</span><span data-i18n="nav_skills">My Skills</span></a>
+        <a href="#portfolio"><span class="idx">03</span><span data-i18n="nav_portfolio">Portfolio</span></a>
+        <a href="#references"><span class="idx">04</span><span data-i18n="nav_references">References</span></a>
+        <a href="#contact"><span class="idx">05</span><span data-i18n="nav_contact">Say Hi</span></a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap">
+            <h1><span data-i18n="hero_l1">Frontend</span><span class="l2" data-i18n="hero_l2">Developer</span></h1>
+            <div class="hero-name"><span class="rule"></span><strong>Philipp Novak</strong></div>
+        </div>
+        <a class="hero-mail" href="mailto:phil_novak@web.de">phil_novak@web.de</a>
+        <a class="scroll-down" href="#about">
+            <!-- SVG PLACEHOLDER: Scroll Down Arrow -->
+            <span data-i18n="scroll">Scroll Down</span>
+        </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about pad">
+        <div class="wrap about-grid">
+            <div class="reveal">
+                <h2 data-i18n="about_title">About me</h2>
+                <p class="lead" data-i18n="about_p">Why am I passionate about coding? Because challenges drive me. I
+                    enjoy turning complex problems into clear, structured solutions. Analytical thinking, creativity and
+                    persistence are some of my strongest qualities and software development allows me to use them every
+                    day. Collaboration and a solution‑oriented mindset are equally important to me, because the best
+                    results are always achieved together.</p>
+                <div class="about-facts">
+                    <div class="fact">
+                        <!-- SVG PLACEHOLDER: Location Pin Icon -->
+                        <span data-i18n="about_loc">Based in Meerbusch</span>
+                    </div>
+                    <div class="fact">
+                        <!-- SVG PLACEHOLDER: Monitor/Device Icon -->
+                        <span data-i18n="about_remote">Open to work</span>
+                    </div>
+                </div>
+                <a href="#contact" class="btn" data-i18n="about_btn">Let's talk</a>
+            </div>
+            <div class="about-photo reveal">
+                <img src="./assets/img/philipp.png" alt="Philipp Novak">
+                <span data-i18n="about_photo">Your photo</span>
+            </div>
+        </div>
+        <a class="diag br" href="#skills" aria-label="Next section">
+            <!-- SVG PLACEHOLDER: Diagonal Arrow Down -->
+        </a>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="pad">
+        <div class="wrap">
+            <div class="head-ruled reveal"><span class="r"></span>
+                <h2 data-i18n="skills_title">My skills</h2><span class="r"></span>
+            </div>
+            <div class="skills-box reveal">
+                <div class="skills-grid">
+                    <!-- Angular -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: Angular Logo --></span><span>Angular</span></div>
+                    <!-- TypeScript -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: TypeScript Logo --></span><span>TypeScript</span></div>
+                    <!-- JavaScript -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: JavaScript Logo --></span><span>JavaScript</span></div>
+                    <!-- HTML -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: HTML Logo --></span><span>HTML</span></div>
+                    <!-- CSS -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: CSS Logo --></span><span>CSS</span></div>
+                    <!-- Supabase -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: Supabase Logo --></span><span>Supabase</span></div>
+                    <!-- Git -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: Git Logo --></span><span>Git</span></div>
+                    <!-- Scrum -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: Scrum Icon --></span><span>Scrum</span></div>
+                    <!-- REST-API -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: REST-API Icon --></span><span>REST-API</span></div>
+                    <!-- Material Design -->
+                    <div class="skill"><span class="ico"><!-- SVG PLACEHOLDER: Material Design Icon --></span><span>Material<br>Design</span></div>
+                </div>
+                <div class="skills-foot">
+                    <!-- SVG PLACEHOLDER: Graduation/Learning Icon -->
+                    <span data-i18n="skills_q">Don't see the skill you need?</span>
+                    <a href="#contact" data-i18n="skills_contact">Contact me</a>
+                    <span data-i18n="skills_end">I'm always ready to learn!</span>
+                </div>
+            </div>
+        </div>
+        <a class="diag bl" href="#portfolio" aria-label="Next section">
+            <!-- SVG PLACEHOLDER: Diagonal Arrow Down -->
+        </a>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="pad">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <h2 data-i18n="portfolio_title">Portfolio</h2>
+                <p data-i18n="portfolio_sub">Explore a selection of my work here — interact with projects to see my
+                    skills in action.</p>
+            </div>
+
+            <div class="proj reveal">
+                <div class="proj-media">
+                    <div class="mock-bar"><i></i><i></i><i></i></div>
+                    <div class="mock-body">
+                        <div class="mock-line m"></div>
+                        <div class="mock-line l"></div>
+                        <div class="mock-line s"></div>
+                        <div class="mock-line l"></div>
+                    </div>
+                    <div class="proj-overlay"><span class="tags">Angular · TypeScript</span>
+                        <h3>Project One</h3>
+                        <div class="proj-links"><a href="#" data-i18n="proj_live">Live</a><a href="#"
+                                data-i18n="proj_code">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="proj-num">01/04</div>
+            </div>
+
+            <div class="proj reverse reveal">
+                <div class="proj-media">
+                    <div class="mock-bar"><i></i><i></i><i></i></div>
+                    <div class="mock-body">
+                        <div class="mock-line l"></div>
+                        <div class="mock-line s"></div>
+                        <div class="mock-line m"></div>
+                        <div class="mock-line l"></div>
+                    </div>
+                    <div class="proj-overlay"><span class="tags">JavaScript · HTML · CSS</span>
+                        <h3>Project Two</h3>
+                        <div class="proj-links"><a href="#" data-i18n="proj_live">Live</a><a href="#"
+                                data-i18n="proj_code">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="proj-num">02/04</div>
+            </div>
+
+            <div class="proj reveal">
+                <div class="proj-media">
+                    <div class="mock-bar"><i></i><i></i><i></i></div>
+                    <div class="mock-body">
+                        <div class="mock-line m"></div>
+                        <div class="mock-line l"></div>
+                        <div class="mock-line l"></div>
+                        <div class="mock-line s"></div>
+                    </div>
+                    <div class="proj-overlay"><span class="tags">Angular · Supabase</span>
+                        <h3>Project Three</h3>
+                        <div class="proj-links"><a href="#" data-i18n="proj_live">Live</a><a href="#"
+                                data-i18n="proj_code">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="proj-num">03/04</div>
+            </div>
+
+            <div class="proj reverse reveal">
+                <div class="proj-media">
+                    <div class="mock-bar"><i></i><i></i><i></i></div>
+                    <div class="mock-body">
+                        <div class="mock-line l"></div>
+                        <div class="mock-line m"></div>
+                        <div class="mock-line s"></div>
+                        <div class="mock-line l"></div>
+                    </div>
+                    <div class="proj-overlay"><span class="tags">React Native · REST-API</span>
+                        <h3>Project Four</h3>
+                        <div class="proj-links"><a href="#" data-i18n="proj_live">Live</a><a href="#"
+                                data-i18n="proj_code">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="proj-num">04/04</div>
+            </div>
+        </div>
+    </section>
+
 </body>
+
 </html>
