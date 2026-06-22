@@ -15,6 +15,7 @@ const i18n = {
     ref_2:"\"Philipp was always actively involved in the planning process and genuinely committed to the project. Working together was a very pleasant experience.\"",
     contact_title:"Say Hi!",contact_sub:"Want to discuss a new project?",contact_text:"Say hello! Let's discuss your ideas and make it happen.",
     ph_name:"Your name",ph_email:"Your email",ph_msg:"Your message",
+    hint_name:"Min. 3 characters, no numbers allowed.",hint_email:"Must be a valid email address.",hint_msg:"Please describe your request.",
     privacy_pre:"I've read the ",privacy_link:"privacy policy",privacy_post:" and agree to the processing of my data as outlined.",
     send:"Send message",legal:"Legal notice",
     ok:"Thanks! Your message has been sent.",err_fields:"Please fill in all fields.",err_privacy:"Please accept the privacy policy."
@@ -34,6 +35,7 @@ const i18n = {
     ref_2:"\"Philipp war immer aktiv im Planungsprozess dabei und hat sich engagiert, an dem Projekt beteiligt. Das gemeinsame Projekt war somit sehr angenehm.\"",
     contact_title:"Sag Hallo!",contact_sub:"Lust auf ein neues Projekt?",contact_text:"Sag Hallo! Lass uns deine Ideen besprechen und umsetzen.",
     ph_name:"Dein Name",ph_email:"Deine E-Mail",ph_msg:"Deine Nachricht",
+    hint_name:"Mind. 3 Zeichen, keine Zahlen erlaubt.",hint_email:"Muss eine gültige E-Mail-Adresse sein.",hint_msg:"Bitte beschreibe dein Anliegen.",
     privacy_pre:"Ich habe die ",privacy_link:"Datenschutzerklärung",privacy_post:" gelesen und stimme der Verarbeitung meiner Daten zu.",
     send:"Nachricht senden",legal:"Impressum",
     ok:"Danke! Deine Nachricht wurde gesendet.",err_fields:"Bitte fülle alle Felder aus.",err_privacy:"Bitte akzeptiere die Datenschutzerklärung."

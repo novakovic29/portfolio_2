@@ -260,19 +260,25 @@
                 <p class="c-sub" data-i18n="contact_sub">Want to discuss a new project?</p>
                 <p class="c-text" data-i18n="contact_text">Say hello! Let's discuss your ideas and make it happen.</p>
                 <form id="contactForm" novalidate>
-                    <div class="form-row"><input type="text" id="f-name" data-ph="ph_name" placeholder="Your name">
+                    <div class="form-row">
+                        <input type="text" id="f-name" data-ph="ph_name" placeholder="Your name" required autocomplete="name">
+                        <small class="form-hint" data-i18n="hint_name">Your full name is required.</small>
                     </div>
-                    <div class="form-row"><input type="email" id="f-email" data-ph="ph_email" placeholder="Your email">
+                    <div class="form-row">
+                        <input type="email" id="f-email" data-ph="ph_email" placeholder="Your email" required autocomplete="email">
+                        <small class="form-hint" data-i18n="hint_email">Must be a valid email address.</small>
                     </div>
-                    <div class="form-row"><textarea id="f-msg" rows="4" data-ph="ph_msg"
-                            placeholder="Your message"></textarea></div>
+                    <div class="form-row">
+                        <textarea id="f-msg" rows="4" data-ph="ph_msg" placeholder="Your message" required></textarea>
+                        <small class="form-hint" data-i18n="hint_msg">Please describe your request.</small>
+                    </div>
                     <label class="privacy">
-                        <input type="checkbox" id="f-privacy">
+                        <input type="checkbox" id="f-privacy" required>
                         <span><span data-i18n="privacy_pre">I've read the </span><a href="#"
                                 data-i18n="privacy_link">privacy policy</a><span data-i18n="privacy_post"> and agree to
                                 the processing of my data as outlined.</span></span>
                     </label>
-                    <button type="submit" class="btn btn--ghost-light" data-i18n="send">Send message</button>
+                    <button type="submit" class="btn btn--ghost-light" data-i18n="send" disabled>Send message</button>
                     <div class="form-msg" id="formMsg" role="status"></div>
                 </form>
             </div>
@@ -284,10 +290,9 @@
                 </div>
                 <div class="footer-right">
                     <div class="socials">
-                        <a href="#" aria-label="GitHub"><!-- SVG PLACEHOLDER: GitHub Logo --></a>
-                        <a href="mailto:se@email.com"
-                            aria-label="Email"><!-- SVG PLACEHOLDER: Email/Envelope Icon --></a>
-                        <a href="#" aria-label="LinkedIn"><!-- SVG PLACEHOLDER: LinkedIn Logo --></a>
+                        <a href="#" aria-label="GitHub"><img src="./assets/img/github_menu.svg" alt="GitHub"></a>
+                        <a href="mailto:phil_novak@web.de" aria-label="Email"><img src="./assets/img/mail_menu.svg" alt="Email"></a>
+                        <a href="#" aria-label="LinkedIn"><img src="./assets/img/linkedin_menu.svg" alt="LinkedIn"></a>
                     </div>
                     <a href="#" class="legal" data-i18n="legal">Legal notice</a>
                 </div>
@@ -296,6 +301,7 @@
     </section>
 
     <script src="./i18n.js"></script>
+    <script src="./form.js"></script>
     <script src="./script.js"></script>
 
 </body>
