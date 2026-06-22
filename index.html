@@ -28,11 +28,26 @@
 
     <!-- MENU OVERLAY -->
     <nav class="menu" id="menu" aria-hidden="true">
-        <a href="#about"><span class="idx">01</span><span data-i18n="nav_about">About me</span></a>
-        <a href="#skills"><span class="idx">02</span><span data-i18n="nav_skills">My Skills</span></a>
-        <a href="#portfolio"><span class="idx">03</span><span data-i18n="nav_portfolio">Portfolio</span></a>
-        <a href="#references"><span class="idx">04</span><span data-i18n="nav_references">References</span></a>
-        <a href="#contact"><span class="idx">05</span><span data-i18n="nav_contact">Say Hi</span></a>
+        <div class="menu-links">
+            <a href="#about"><span data-i18n="nav_about">About me</span></a>
+            <a href="#skills"><span data-i18n="nav_skills">My Skills</span></a>
+            <a href="#portfolio"><span data-i18n="nav_portfolio">Portfolio</span></a>
+            <a href="#references"><span data-i18n="nav_references">References</span></a>
+            <a href="#contact"><span data-i18n="nav_contact">Say Hi</span></a>
+        </div>
+        <div class="menu-bottom">
+            <div class="menu-bottom-inner">
+                <div class="menu-hi">
+                    <p class="menu-hi-title">Say Hi!</p>
+                    <a href="mailto:phil_novak@web.de" class="menu-hi-email">phil_novak@web.de</a>
+                </div>
+                <div class="menu-socials">
+                    <a href="#" aria-label="GitHub"><img src="./assets/img/github_menu.svg" alt="GitHub"></a>
+                    <a href="mailto:phil_novak@web.de" aria-label="Email"><img src="./assets/img/mail_menu.svg" alt="Email"></a>
+                    <a href="#" aria-label="LinkedIn"><img src="./assets/img/linkedin_menu.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -292,6 +307,7 @@
         </div>
     </section>
 
+    <script src="./i18n.js"></script>
     <script src="./script.js"></script>
 
 </body>
