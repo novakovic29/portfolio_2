@@ -37,11 +37,38 @@ function updateBtn() {
 });
 fPrivacy.addEventListener("change", updateBtn);
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async e => {
   e.preventDefault();
   if (!isFormValid()) return;
-  msg.classList.remove("err");
-  msg.textContent = i18n[lang].ok;
-  form.reset();
+
+  submitBtn.disabled = true;
+  msg.textContent = "";
+
+  try {
+    const res = await fetch("./contact_form_mail.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name:    fName.value.trim(),
+        email:   fEmail.value.trim(),
+        message: fMsg.value.trim()
+      })
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.success) {
+      msg.classList.remove("err");
+      msg.textContent = i18n[lang].ok;
+      form.reset();
+    } else {
+      msg.classList.add("err");
+      msg.textContent = i18n[lang].err_fields;
+    }
+  } catch {
+    msg.classList.add("err");
+    msg.textContent = i18n[lang].err_fields;
+  }
+
   updateBtn();
 });
