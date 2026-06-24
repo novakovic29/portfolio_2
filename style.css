@@ -344,6 +344,7 @@ body.menu-open .menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 100px clamp(24px, 8vw, 120px) 24px;
   gap: 4px;
 }
@@ -394,6 +395,11 @@ body.menu-open .menu {
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1;
   letter-spacing: -0.02em;
+  transition: color .2s ease;
+}
+
+.menu-hi-title:hover {
+  color: var(--teal);
 }
 
 .menu-hi-email {
@@ -1196,15 +1202,17 @@ section {
 }
 
 .form-hint {
-  display: none;
+  display: block;
+  visibility: hidden;
   margin-top: 5px;
   font-size: .75rem;
   color: #e05555;
   letter-spacing: .02em;
+  min-height: 1em;
 }
 
 .form-row:has(.is-invalid) .form-hint {
-  display: block;
+  visibility: visible;
 }
 
 .form-row input::placeholder,

@@ -146,9 +146,16 @@ function updateLangButtons(l) {
  * @param {string} l - Locale code ("en" or "de").
  * @returns {void}
  */
+/**
+ * Applies all translations for the given locale to the current page
+ * and persists the choice in localStorage.
+ * @param {string} l - Locale code ("en" or "de").
+ * @returns {void}
+ */
 function applyLang(l) {
   lang = l;
   document.documentElement.lang = l;
+  localStorage.setItem("lang", l);
   applyTextNodes(l);
   applyHtmlNodes(l);
   applyPlaceholders(l);
@@ -159,4 +166,4 @@ document.querySelectorAll(".lang button").forEach(b =>
   b.addEventListener("click", () => applyLang(b.dataset.lang))
 );
 
-applyLang("en");
+applyLang(localStorage.getItem("lang") || "en");
