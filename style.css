@@ -333,14 +333,15 @@ body.menu-open .burger span:nth-child(3) {
   color: var(--ink);
   display: flex;
   flex-direction: column;
-  opacity: 0;
+  transform: translateY(-100%);
   visibility: hidden;
-  transition: opacity .35s ease, visibility .35s;
+  transition: transform .4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s .4s;
 }
 
 body.menu-open .menu {
-  opacity: 1;
+  transform: translateY(0);
   visibility: visible;
+  transition: transform .4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0s;
 }
 
 .menu-links {
@@ -361,28 +362,88 @@ body.menu-open .menu {
   color: var(--ink);
   display: flex;
   align-items: center;
-  gap: 20px;
+  position: relative;
+  padding-left: calc(clamp(10px, 1.5vw, 16px) + 16px);
   transition: color .2s ease;
 }
 
 .menu-links a::before {
   content: '';
-  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: clamp(10px, 1.5vw, 16px);
   height: clamp(10px, 1.5vw, 16px);
-  border-left: 2.5px solid currentColor;
-  border-bottom: 2.5px solid currentColor;
-  flex-shrink: 0;
+  border-left: 3.5px solid currentColor;
+  border-bottom: 3.5px solid currentColor;
+  pointer-events: none;
+}
+
+.menu-links a::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-left: 3.5px solid currentColor;
+  border-right: 3.5px solid currentColor;
+  border-top: 0 solid currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-links a:hover::before {
+  animation: underline-trim 0.7s ease forwards;
+}
+
+@keyframes underline-trim {
+  0%   { left: 0; width: clamp(10px,1.5vw,16px); height: clamp(10px,1.5vw,16px); border-left-width: 3.5px; }
+  45%  { left: 0; width: 100%; height: 3px; border-left-width: 0; }
+  100% { left: 50%; width: 50%; height: 3px; border-left-width: 0; }
+}
+
+.menu-links a.is-animating::before {
+  animation: underline-trim-full 0.7s ease forwards;
+}
+
+@keyframes underline-trim-full {
+  0%   { left: 0; width: clamp(10px,1.5vw,16px); height: clamp(10px,1.5vw,16px); border-left-width: 3.5px; }
+  45%  { left: 0; width: 100%; height: 3px; border-left-width: 0; }
+  75%  { left: 50%; width: 50%; height: 3px; border-left-width: 0; }
+  100% { left: 0; width: 100%; height: 3px; border-left-width: 0; }
+}
+
+.menu-links a.is-active::before {
+  animation: none;
+  left: 0; width: 100%; height: 3px; border-left-width: 0;
+}
+
+.menu-links a.is-active:hover::before {
+  animation: none;
+  left: 0; width: 100%; height: 3px; border-left-width: 0;
+}
+
+.menu-links a.is-active::after {
+  animation: frame-rise 0.5s ease forwards;
+}
+
+@keyframes frame-rise {
+  0%   { opacity: 1; top: 100%;    border-top-width: 0; }
+  55%  { opacity: 1; top: 0.05em; border-top-width: 0; }
+  58%  { opacity: 1; top: 0.05em; border-top-width: 3.5px; }
+  80%  { opacity: 1; top: 0.05em; border-top-width: 3.5px; }
+  100% { opacity: 0; top: 0.05em; border-top-width: 3.5px; }
 }
 
 .menu-links a:hover {
-  color: var(--teal);
+  color: inherit;
 }
 
 .menu-bottom {
   background: var(--dark);
   color: var(--cream);
-  padding: 52px clamp(32px, 8vw, 120px) 40px;
+  padding: 76px clamp(32px, 8vw, 120px) 40px;
   clip-path: polygon(0 0, 100% 44px, 100% 100%, 0 100%);
 }
 
@@ -391,6 +452,10 @@ body.menu-open .menu {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
+}
+
+.menu-hi {
+  align-self: flex-start;
 }
 
 .menu-hi-title {
@@ -404,6 +469,55 @@ body.menu-open .menu {
 
 .menu-hi-title:hover {
   color: var(--teal);
+}
+
+@keyframes hi-pulse {
+  0%, 100% { color: var(--cream); }
+  50%       { color: var(--teal); }
+}
+
+@keyframes nav-pulse {
+  0%, 100% { color: var(--ink); }
+  50%       { color: var(--teal); }
+}
+
+@keyframes photo-pulse {
+  0%, 100% { opacity: 0; transform: translate(0, 0); }
+  50%       { opacity: 1; transform: translate(8px, 8px); }
+}
+
+@media (max-width: 768px) {
+  .menu-hi-title {
+    animation: hi-pulse 2s ease-in-out infinite;
+  }
+  .menu-hi-title:hover {
+    animation-play-state: paused;
+    color: var(--teal);
+  }
+
+  .about h2,
+  .head-ruled h2,
+  .section-head h2 {
+    animation: nav-pulse 2s ease-in-out infinite;
+  }
+
+  .about-photo::after {
+    animation: photo-pulse 2s ease-in-out infinite;
+  }
+  .about h2:hover,
+  .head-ruled h2:hover,
+  .section-head h2:hover {
+    animation-play-state: paused;
+    color: var(--teal);
+  }
+
+  .contact h2 {
+    animation: hi-pulse 2s ease-in-out infinite;
+  }
+  .contact h2:hover {
+    animation-play-state: paused;
+    color: var(--teal);
+  }
 }
 
 .menu-hi-email {
@@ -513,28 +627,20 @@ body.menu-open .menu {
   opacity: .55;
 }
 
+.scroll-clip {
+  display: block;
+  height: 95px;
+  clip-path: inset(-60px 0 0 0);
+}
+
 .scroll-down img {
-  animation: drop 1.3s ease-in-out infinite
+  animation: drop 1.5s ease-in-out infinite;
+  display: block;
 }
 
 @keyframes drop {
-  0% {
-    transform: translateY(-24px);
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(28px);
-    opacity: 0;
-  }
+  0%   { transform: translateY(-160px); }
+  100% { transform: translateY(100px); }
 }
 
 /* ---------- section frame ---------- */
@@ -602,6 +708,7 @@ section {
   font-weight: 900;
   margin-bottom: clamp(16px, 2.5vw, 28px);
   transition: color .25s ease;
+  white-space: nowrap;
 }
 
 .about h2:hover,
@@ -1567,7 +1674,16 @@ section {
   }
 }
 
-@media(max-width:400px) {
+@media(max-width:480px) {
+  section {
+    scroll-margin-top: 56px;
+  }
+
+  .menu-links {
+    padding-top: 64px;
+    gap: 16px;
+  }
+
   .about h2 {
     font-size: clamp(1.8rem, 9vw, 2.2rem);
   }
@@ -1600,14 +1716,12 @@ section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: -36px;
   }
 
   .menu-socials {
     flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 0;
-    margin-top: auto;
+    margin-top: 40px;
   }
 
   .menu-socials a img {
@@ -1678,10 +1792,6 @@ section {
 }
 
 /* ---------- legal notice ---------- */
-.legal-page .wrap > * {
-  max-width: 760px;
-  margin-inline: auto;
-}
 
 .legal-page h1 {
   font-family: 'Syne', sans-serif;
@@ -1719,7 +1829,6 @@ section {
 .legal-block li {
   font-size: 1rem;
   line-height: 1.75;
-  max-width: 72ch;
   color: var(--ink);
 }
 
