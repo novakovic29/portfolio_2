@@ -226,14 +226,18 @@ svg {
 }
 
 .logo img {
-  height: 4rem;
+  height: 2.5rem;
   width: auto;
   display: block;
 }
 
+.site-header .logo {
+  margin-inline-start: -8px;
+}
+
 .site-footer .logo img,
 .footer-left .logo img {
-  height: 4rem;
+  height: 2.5rem;
   filter: brightness(0) invert(1);
 }
 
@@ -379,7 +383,7 @@ body.menu-open .menu {
   background: var(--dark);
   color: var(--cream);
   padding: 52px clamp(32px, 8vw, 120px) 40px;
-  clip-path: polygon(0 44px, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 44px, 100% 100%, 0 100%);
 }
 
 .menu-bottom-inner {
@@ -486,7 +490,7 @@ body.menu-open .menu {
 
 .hero-mail {
   position: absolute;
-  left: max(clamp(26px, 5vw, 64px), calc((100% - var(--maxw)) / 2 + clamp(26px, 5vw, 64px)));
+  left: max(clamp(34px, 5.8vw, 72px), calc((100vw - 1180px) / 2 + clamp(34px, 5.8vw, 72px)));
   bottom: 120px;
   transform: rotate(-90deg);
   transform-origin: left bottom;
@@ -832,6 +836,15 @@ section {
   margin-top: clamp(28px, 4vw, 44px);
   font-size: 1rem;
   text-align: center;
+}
+
+.skills-foot .ico {
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.skills-foot .ico:hover img {
+  animation: carousel-slide 1s ease-in-out infinite;
 }
 
 .skills-contact {
@@ -1577,10 +1590,29 @@ section {
 
   .menu-hi-email {
     font-size: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 130px;
+  }
+
+  .menu-bottom-inner {
+    align-items: flex-start;
+  }
+
+  .menu-hi {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-socials {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 0;
+    margin-top: auto;
+  }
+
+  .menu-socials a img {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -1646,6 +1678,11 @@ section {
 }
 
 /* ---------- legal notice ---------- */
+.legal-page .wrap > * {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
 .legal-page h1 {
   font-family: 'Syne', sans-serif;
   font-weight: 900;
@@ -1662,7 +1699,20 @@ section {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 1rem;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+.legal-block h3 {
+  font-size: 1rem;
+  margin-top: 24px;
   margin-bottom: 10px;
+}
+
+.legal-block h4 {
+  font-size: 1rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
 }
 
 .legal-block p,
@@ -1709,9 +1759,9 @@ body:has(.contact--slim) .legal-page {
 
 .contact--slim {
   margin-top: 0;
-  padding-block: 0;
-  clip-path: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 44px;
+  padding-bottom: 0;
+  clip-path: polygon(0 0, 100% 52px, 100% 100%, 0 100%);
 }
 
 .contact--slim .site-footer {
