@@ -1679,6 +1679,14 @@ section {
     scroll-margin-top: 56px;
   }
 
+  .pad {
+    padding-block-start: 40px;
+  }
+
+  .legal-page {
+    padding-block-start: 90px;
+  }
+
   .menu-links {
     padding-top: 64px;
     gap: 16px;
@@ -1793,11 +1801,21 @@ section {
 
 /* ---------- legal notice ---------- */
 
+.legal-page {
+  padding-block-start: clamp(110px, 12vw, 150px);
+}
+
 .legal-page h1 {
   font-family: 'Syne', sans-serif;
   font-weight: 900;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+@media(max-width:480px) {
+  .legal-page h1 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
 }
 
 .legal-block {
@@ -1893,6 +1911,20 @@ body:has(.contact--slim) .legal-page {
 
 .contact--slim .footer-right .socials {
   margin-bottom: 0;
+}
+
+@media(max-width:480px) {
+  .contact--slim .site-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .contact--slim .footer-left,
+  .contact--slim .footer-right {
+    display: contents;
+  }
 }
 
 /* ---------- widescreen ---------- */
